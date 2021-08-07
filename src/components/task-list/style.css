@@ -1,0 +1,45 @@
+.list-element {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 5px;
+    padding: 0.43rem;
+    margin-bottom: 0.6rem;
+    background-color: white;
+    font-size: 90%;
+}
+
+.icon-todo-progress {
+    color: #22863a;
+    max-width: 19px;
+    max-height: 19px;
+}
+
+.icon-done {
+    color: #cb2431;
+    max-width: 19px;
+    max-height: 19px;
+}
+
+.title-block {
+    width: 100%;
+}
+
+.list-title {
+    color: #0366d6;
+    font-weight: 600;
+    margin: 0 0.4rem 0.4rem 0.4rem;
+}
+
+.secundary-text {
+    color: grey;
+    font-size: 0.9rem;
+    margin: 0 0.4rem 0.4rem 0.4rem;
+}
+
+.basket {
+    border: none;
+    font-size: inherit;
+}

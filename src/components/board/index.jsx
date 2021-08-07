@@ -22,9 +22,9 @@ function Board() {
       </div>
 
       <div className="board">
-        <TaskColumn clearAll = {false} cardName ='To do' ></TaskColumn>
-        <TaskColumn clearAll = {false} cardName ='In progress' ></TaskColumn>
-        <TaskColumn clearAll = {true} cardName ='Done' ></TaskColumn>
+        <TaskColumn done = {false} cardName ='To do' ></TaskColumn>
+        <TaskColumn done = {false} cardName ='In progress' ></TaskColumn>
+        <TaskColumn done = {true} cardName ='Done' ></TaskColumn>
       </div>
     </React.Fragment>
   );

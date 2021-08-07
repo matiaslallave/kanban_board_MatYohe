@@ -1,21 +1,35 @@
 import "./style.css";
-import TaskItem from "../task-item";
 import { useState } from "react";
+import TaskList from "../task-list";
+import { useRef } from "react";
 
 function TaskColumn(props) {
+  const [tasks, setTasks] = useState([]);
+
+  const [cardText, setCardText] = useState('');
+
   const [addClass, setAddClass] = useState("add-button-inactive");
-  const [taskArray, setTaskArray] = useState([]);
   const [showInput, setShowInput] = useState("display-none");
   const [counter, setCounter] = useState(0);
 
-  const [id, setId] = useState(0);
+  const textAreaRef = useRef();
 
-  const [card, setCard] = useState({
-    done: props.clearAll,
-    title: "",
-    id: id,
-    date: "",
-  });
+  const handleAddTask = () => {
+    let now = new Date();
+    let day = now.getDate() + '/' + ( now.getMonth() + 1 ) + '/' + now.getFullYear();
+    let time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+
+    setCounter(counter + 1);
+
+    global.config.ID.value++;
+
+    setTasks((v) => {
+      return [...v, { done: props.done, title: cardText, id: global.config.ID.value, date: `${day} at ${time}`}];
+    });
+
+    textAreaRef.current.value = '';
+    setCardText('');
+  };
 
   return (
     <div className="list-block">
@@ -28,36 +42,34 @@ function TaskColumn(props) {
           <button className="add-task" onClick={() => setShowInput("")}>
             +
           </button>
-          {props.clearAll ? (
-            <button className="clear-all">Clear All</button>
-          ) : (
-            ""
-          )}
+          {props.done ? <button className="clear-all">Clear All</button> : ""}
         </div>
       </div>
 
       <div className={showInput}>
         <textarea
+          ref={textAreaRef}
           placeholder="Enter a note..."
           className="new-task-placeholder"
           onChange={(e) => {
-            setCard({title: e.target.value}); 
+            setCardText(e.target.value);
             e.target.value !== ""
               ? setAddClass("add-button")
               : setAddClass("add-button-inactive");
           }}
         ></textarea>
         <div className="add-cancel-block">
-          <button
-            className={`add-button-border ${addClass}`}
-            onClick={() => {
-              setCounter(taskArray.length);
-              setId(id + 1);
-              setTaskArray(card);
-            }}
-          >
-            Add
-          </button>
+          {cardText === '' ? (
+            <button className={`add-button-border ${addClass}`}>Add</button>
+          ) : (
+            <button
+              className={`add-button-border ${addClass}`}
+              onClick={() => {handleAddTask()}}
+            >
+              Add
+            </button>
+          )}
+
           <button
             className="cancel-button"
             onClick={() => setShowInput("display-none")}
@@ -67,11 +79,7 @@ function TaskColumn(props) {
         </div>
       </div>
 
-      <ul className="list">
-        {taskArray.map((v) => (
-          <TaskItem task={v}></TaskItem>
-        ))}
-      </ul>
+      <TaskList tasks={tasks}></TaskList>
     </div>
   );
 }
