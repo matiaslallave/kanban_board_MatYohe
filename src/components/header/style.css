@@ -1,0 +1,23 @@
+.header {
+    background-color: #24292e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: ivory;
+    padding: 0.7rem;
+}
+
+.logo {
+    width: 52px;
+    height: 50px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    width: 55%;
+}
+
+.title-text {
+    margin-left: 0.7rem;
+}

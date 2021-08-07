@@ -1,0 +1,136 @@
+.list-block {
+    width: 33%;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
+    background-color: #d5d4de;
+    padding: 0.6rem;
+    border-radius: 5px;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #24292e;
+    padding: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.counter-title-block {
+    display: flex;
+    align-items: center;
+}
+
+.task-counter {
+    border: none;
+    background-color: #e3e3e3;
+    border-radius: 50%;
+    width: 1.6rem;
+    height: 1.6rem;
+    text-align: center;
+}
+
+.task {
+    margin-left: 1rem;
+    height: 1.6rem;
+}
+
+.clear-block {
+    display: flex;
+    align-items: center;
+}
+
+.add-task {
+    font-size: xx-large;
+    border: none;
+    font-weight: 400;
+    color: grey;
+    background-color: transparent;
+}
+
+.add-task:hover {
+    color: #2ea44f;
+}
+
+.clear-all {
+    border: none;
+    margin-left: 0.7rem;
+    font-size: unset;
+    font-weight: 400;
+    color: grey;
+    background-color: transparent;
+}
+
+.clear-all:hover {
+    color: rgb(212, 44, 44);
+}
+
+.new-task-placeholder {
+    padding: 0.7rem;
+    width: 100%;
+    border-color: #0366d6;
+    border-style: outset;
+    border-radius: 7px;
+    margin-top: 0.43rem;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.new-task-placeholder:focus {
+    outline: none;
+    border-color: #3879c4;
+    box-shadow: 0 0 11px #3879c4;
+}
+
+.add-cancel-block {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 7px;
+    margin-bottom: 13px;
+}
+
+.add-button {
+    background-color: #2ea44f;
+    color: ivory;
+    width: 45%;
+    height: 2.5em;
+    font-weight: 500;
+}
+
+.add-button-border {
+    border-style: solid;
+    border-color: #2ea44f;
+    border-radius: 7px;
+}
+
+.add-button-inactive {
+    background-color: #2ea44f;
+    color: ivory;
+    width: 45%;
+    height: 2.5em;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.cancel-button {
+    background-color: #fafbfc;
+    color: #24292e;
+    border-style: solid;
+    border-color: rgba(27, 31, 35, 0.15);
+    width: 45%;
+    height: 2.5em;
+    border-radius: 7px;
+    font-weight: 500;
+}
+
+.list {
+    list-style-type: none;
+    overflow-y: auto;
+    max-height: 65vh;
+    padding-right: 0.3rem;
+    padding-left: 0.3rem;
+}
+
+.display-none{
+    display: none;
+}
