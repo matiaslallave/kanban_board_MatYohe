@@ -103,6 +103,10 @@
     border-radius: 7px;
 }
 
+.add-button-border:hover {
+    box-shadow: 0 0 5px #227a3b;
+}
+
 .add-button-inactive {
     background-color: #2ea44f;
     color: ivory;
@@ -121,6 +125,10 @@
     height: 2.5em;
     border-radius: 7px;
     font-weight: 500;
+}
+
+.cancel-button:hover {
+    box-shadow: 0 0 5px #24292e;
 }
 
 .list {
