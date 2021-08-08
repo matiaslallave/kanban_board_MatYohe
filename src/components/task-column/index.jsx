@@ -8,7 +8,7 @@ function TaskColumn(props) {
 
   const [cardText, setCardText] = useState("");
 
-  const [isDisabled, setIsDisabled] = useState("true");
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const [addClass, setAddClass] = useState("add-button-inactive");
   const [showInput, setShowInput] = useState("display-none");
@@ -42,6 +42,18 @@ function TaskColumn(props) {
     setCardText("");
   };
 
+  const handleClearAll = () => {
+    const arrayCleared = [];
+    setTasks(arrayCleared);
+    setCounter(0);
+  };
+
+  const deleteCard = (id) => {
+    const arrayCardDeleted = tasks.filter((v) => v.id !== id);
+    setTasks(arrayCardDeleted);
+    setCounter(counter - 1);
+  }
+
   return (
     <div className="list-block">
       <div className="list-header">
@@ -53,7 +65,13 @@ function TaskColumn(props) {
           <button className="add-task" onClick={() => setShowInput("")}>
             +
           </button>
-          {props.done ? <button className="clear-all">Clear All</button> : ""}
+          {props.done ? (
+            <button className="clear-all" onClick={handleClearAll}>
+              Clear All
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
 
@@ -76,9 +94,7 @@ function TaskColumn(props) {
           <button
             className={`add-button-border ${addClass}`}
             disabled={isDisabled}
-            onClick={() => {
-              handleAddTask();
-            }}
+            onClick={() => handleAddTask()}
           >
             Add
           </button>
@@ -91,7 +107,7 @@ function TaskColumn(props) {
         </div>
       </div>
 
-      <TaskList tasks={tasks}></TaskList>
+      <TaskList tasks={tasks} deleteCard={deleteCard} searchFilter= {props.searchFilter}></TaskList>
     </div>
   );
 }

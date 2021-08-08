@@ -5,7 +5,7 @@ function TaskList(props) {
   return (
     <ul className="list">
       {props.tasks.map((v) => (
-        <TaskItem task={v}></TaskItem>
+        <TaskItem key = {v.id} task={v} deleteCard={props.deleteCard} searchFilter = {props.searchFilter}></TaskItem>
       ))}
     </ul>
   );

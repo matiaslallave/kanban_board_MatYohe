@@ -43,3 +43,11 @@
     border: none;
     font-size: inherit;
 }
+
+.basket:hover {
+    font-size: large;
+}
+
+.display-none{
+    display: none;
+}
