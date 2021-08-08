@@ -1,5 +1,5 @@
 module.exports = global.config = {
   ID: {
-    value: 0,
+    value: JSON.parse(localStorage.getItem('IDStorage'))
   }
 };
